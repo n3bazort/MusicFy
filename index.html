@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicFy</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">MusicFy</a>
+            <div class="nav-links">
+                <a href="index.html">INICIO</a>
+                <a href="login.html">INICIAR SESIÓN</a>
+                <a href="register.html">REGISTRARME</a>
+                <a href="reproductor.html">Reproductor</a>
+                <a href="user.html">Mi perfil</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="genres">
+            <button class="genre-btn">Relax</button>
+            <button class="genre-btn">Hip Hop</button>
+            <button class="genre-btn">Electrónica</button>
+            <button class="genre-btn">Pop</button>
+            <button class="genre-btn">Rock</button>
+            <button class="genre-btn">Trap</button>
+            <button class="genre-btn">Fiesta</button>
+        </div>
+
+        <div class="music-grid">
+            <div class="music-card">
+                <img src="images/albums/album1.jpg" alt="Album 1">
+                <h3>Canción 1</h3>
+                <p>Artista 1</p>
+            </div>
+            <div class="music-card">
+                <img src="images/albums/album2.jpg" alt="Album 2">
+                <h3>Canción 2</h3>
+                <p>Artista 2</p>
+            </div>
+            <div class="music-card">
+                <img src="images/albums/album3.jpg" alt="Album 3">
+                <h3>Canción 3</h3>
+                <p>Artista 3</p>
+            </div>
+            <div class="music-card">
+                <img src="images/albums/album4.jpg" alt="Album 4">
+                <h3>Canción 4</h3>
+                <p>Artista 4</p>
+            </div>
+            <div class="music-card">
+                <img src="images/albums/album5.jpg" alt="Album 5">
+                <h3>Canción 5</h3>
+                <p>Artista 5</p>
+            </div>
+            <div class="music-card">
+                <img src="images/albums/album6.jpg" alt="Album 6">
+                <h3>Canción 6</h3>
+                <p>Artista 6</p>
+            </div>
+            <div class="music-card">
+                <img src="images/albums/album7.jpg" alt="Album 7">
+                <h3>Canción 7</h3>
+                <p>Artista 7</p>
+            </div>
+            <div class="music-card">
+                <img src="images/albums/album8.jpg" alt="Album 8">
+                <h3>Canción 8</h3>
+                <p>Artista 8</p>
+            </div>
+            <div class="music-card">
+                <img src="images/albums/album9.jpg" alt="Album 9">
+                <h3>Canción 9</h3>
+                <p>Artista 9</p>
+            </div>
+            <div class="music-card">
+                <img src="images/albums/album10.jpg" alt="Album 10">
+                <h3>Canción 10</h3>
+                <p>Artista 10</p>
+            </div>
+            <div class="music-card">
+                <img src="images/albums/album11.jpg" alt="Album 10">
+                <h3>Canción 11</h3>
+                <p>Artista 11</p>
+            </div>
+            <div class="music-card">
+                <img src="images/albums/album12.jpg" alt="Album 10">
+                <h3>Canción 12</h3>
+                <p>Artista 12</p>
+            </div>
+            <div class="music-card">
+                <img src="images/albums/album13.jpg" alt="Album 10">
+                <h3>Canción 13</h3>
+                <p>Artista 13</p>
+            </div>
+            <div class="music-card">
+                <img src="images/albums/album14.jpg" alt="Album 10">
+                <h3>Canción 14</h3>
+                <p>Artista 14</p>
+            </div>
+ 
+        </div>
+        </div>
+    </main>
+
+    <footer class="player">
+        <div class="now-playing">
+            <img id="album-cover" src="images/albums/album1.jpg" alt="Album cover" class="album-cover">
+            <div>
+                <span id="current-song">Canción 1</span>
+                <span id="current-artist">Artista 1</span>
+            </div>
+        </div>
+        <div class="player-controls">
+            <input type="range" id="progress-bar" min="0" max="100" value="0">
+            <button class="player-btn" id="shuffle-btn">🔀</button>
+            <button class="player-btn" id="prev-btn">⏮</button>
+            <button class="player-btn" id="play-btn">▶</button>
+            <button class="player-btn" id="next-btn">⏭</button>
+            <button class="player-btn" id="repeat-btn">🔁</button>
+            <input type="range" id="volume-control" min="0" max="100" value="100">
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

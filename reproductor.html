@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor - MusicFy</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        body {
+            background-color: var(--primary-dark);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+           <a href="index.html" class="logo">MusicFy</a>
+            <div class="nav-links">
+                <a href="index.html">INICIO</a>
+
+            </div>
+        </nav>
+    </header>
+
+
+
+    <div class="player-container">
+        <!-- <div class="vinyl-record" id="vinyl"></div> -->
+        <div class="player-screen">
+            <img src="images/albums/disco.gif" alt="Reproducción de música" class="gif-player">
+        </div>
+
+        <div class="song-info">
+            <div class="song-title">La cucaracha</div>
+            <div class="artist">Zim Bala Jonny</div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn">⏮</button>
+            <button class="control-btn" id="playBtn">▶</button>
+            <button class="control-btn">⏭</button>
+        </div>
+    </div>
+
+    <script>
+        const vinyl = document.getElementById('vinyl');
+        const playBtn = document.getElementById('playBtn');
+        const progress = document.getElementById('progress');
+        let isPlaying = false;
+        let progressInterval;
+
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                vinyl.classList.add('playing');
+                playBtn.textContent = '⏸';
+                startProgress();
+            } else {
+                vinyl.classList.remove('playing');
+                playBtn.textContent = '▶';
+                stopProgress();
+            }
+        });
+
+        function startProgress() {
+            let width = 0;
+            progressInterval = setInterval(() => {
+                width = (width + 0.1) % 100;
+                progress.style.width = width + '%';
+            }, 100);
+        }
+
+        function stopProgress() {
+            clearInterval(progressInterval);
+        }
+    </script>
+</body>
+
+</html>
