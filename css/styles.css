@@ -7,15 +7,18 @@
 }
 
 main {
-    margin-bottom: 80px; /* Deja espacio para el reproductor */
-    overflow-y: auto; /* Permite desplazamiento vertical */
+    margin-bottom: 80px;
+    /* Deja espacio para el reproductor */
+    overflow-y: auto;
+    /* Permite desplazamiento vertical */
     padding: 1rem;
 }
 
 
 
 body {
-    height: 100vh; /* Asegura que el cuerpo ocupe toda la pantalla */
+    height: 100vh;
+    /* Asegura que el cuerpo ocupe toda la pantalla */
     display: flex;
     flex-direction: column;
 }
@@ -25,8 +28,10 @@ footer.player {
     bottom: 0;
     width: 100%;
     background-color: var(--primary);
-    padding:  0.3rem; /* Cambia estos valores para ajustarlo */
-    height: auto; /* Ajusta a su contenido */
+    padding: 0.3rem;
+    /* Cambia estos valores para ajustarlo */
+    height: auto;
+    /* Ajusta a su contenido */
 }
 
 
@@ -86,8 +91,8 @@ nav {
 }
 
 .genre-btn:hover {
-    transform: scale(1.1); /* Agranda ligeramente la tarjeta */
-    background-color: var(--primary); /* Cambia el fondo al pasar el cursor */
+    transform: scale(1.1);
+    background-color: var(--primary);
 }
 
 .music-grid {
@@ -103,12 +108,14 @@ nav {
     padding: 1rem;
     cursor: pointer;
     text-align: center;
-    transition: transform 0.3s, background-color 0.3s; /* Transición suave */
+    transition: transform 0.3s, background-color 0.3s;
+    /* Transición suave */
 }
 
 .music-card:hover {
-    transform: scale(1.05); /* Agranda ligeramente la tarjeta */
-    background-color: var(--primary-light); /* Cambia el fondo al pasar el cursor */
+    transform: scale(1.05);
+    /* Agranda ligeramente la tarjeta */
+    background-color: var(--primary-light);
 }
 
 
@@ -176,7 +183,9 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-.user-profile, .listen-again, .available-music {
+.user-profile,
+.listen-again,
+.available-music {
     margin: 2rem 0;
     padding: 0 1rem;
 }
@@ -187,7 +196,8 @@ button[type="submit"] {
     margin-right: 1rem;
 }
 
-#progress-bar, #volume-control {
+#progress-bar,
+#volume-control {
     width: 100%;
     margin: 0 1rem;
 }
@@ -280,8 +290,85 @@ button[type="submit"] {
     /* Tamaño máximo del GIF */
     height: auto;
     border-radius: 10px;
-    /* Esquinas redondeadas, si lo deseas */
     display: block;
     margin: 0 auto;
-    /* Centra el GIF */
+}
+
+.form-container {
+
+    max-width: 25%;
+    width: 100%;
+    margin: auto;
+    /* Centra horizontalmente */
+    padding: 2rem;
+    background-color: var(--primary);
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    /* Sombra */
+    display: flex;
+    /* Habilita flexbox */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
+
+h2 {
+    text-align: center;
+    /* Centra el título */
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--primary-light);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary);
+    /* Color más oscuro al pasar el cursor */
+}
+
+p {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+a {
+    color: var(--accent);
+    /* Azul claro */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    /* Subrayado al pasar el cursor */
 }
