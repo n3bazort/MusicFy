@@ -15,6 +15,60 @@
     font-family: 'Arial', sans-serif;
 }
 
+.terms {
+    display: inline-flex; /* Cambia a inline-flex para evitar ocupar todo el ancho */
+    align-items: center; /* Alinea el texto y el checkbox verticalmente */
+    gap: 0.5rem; /* Espaciado entre el checkbox y el texto */
+    font-size: 0.9rem; /* Ajusta el tamaño del texto */
+    width: auto; /* Asegúrate de que solo ocupe el ancho necesario */
+}
+
+.terms input[type="checkbox"] {
+    margin: 0; /* Elimina márgenes del checkbox */
+}
+
+.terms label {
+    margin: 0; /* Asegúrate de que no haya márgenes adicionales en el label */
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+
+
+
+.terms a {
+    color: var(--accent); /* Ajusta el color del enlace */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+/* Botón de registro deshabilitado */
+.register-btn[disabled] {
+    background-color: #7a80a5; /* Color gris para el botón deshabilitado */
+    cursor: not-allowed;
+}
+
+/* Botón de registro habilitado */
+.register-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--primary-light);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+    background-color: var(--primary);
+    border: 1px solid rgb(255, 255, 255); /* Borde negro */
+}
+
 
 
 
@@ -266,10 +320,13 @@ h2 {
 
 /* Etiquetas */
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+    display: block; /* Asegura que el label ocupe toda la línea */
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin-bottom: 0.5rem; /* Agrega un pequeño espacio debajo del label */
+    font-weight: bold; /* Opcional: Resalta el texto */
+    color: white; /* Ajusta el color si es necesario */
 }
+
 
 /* Campos de entrada */
 .form-group input {

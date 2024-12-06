@@ -48,3 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const termsCheckbox = document.getElementById('terms');
+    const registerBtn = document.getElementById('registerBtn');
+
+    // Escucha el cambio del estado del checkbox
+    termsCheckbox.addEventListener('change', () => {
+        registerBtn.disabled = !termsCheckbox.checked; // Habilita/deshabilita el botón
+    });
+});
+
