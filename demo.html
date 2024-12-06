@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Presentación</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="carousel-container">
+        <!-- Contenedor de Diapos -->
+        <div class="diapo-wrapper">
+            <!-- Diapo 1 -->
+            <div class="diapo active">
+                <div class="diapo-overlay"></div>
+                <img src="./images/slides/demo3.png" alt="Diapo 1">
+                <div class="diapo-text">
+                    <h1>Millones de canciones.</h1>
+                    <h2>Gratis en tu plataforma.</h2>
+                </div>
+            </div>
+            <!-- Diapo 2 -->
+            <div class="diapo">
+                <div class="diapo-overlay"></div>
+                <img src="./images/slides/demo1.png" alt="Diapo 2">
+                <div class="diapo-text">
+                    <h1>Descubre nuevos artistas.</h1>
+                    <h2>Escucha lo que amas.</h2>
+                </div>
+            </div>
+            <!-- Diapo 3 -->
+            <div class="diapo">
+                <div class="diapo-overlay"></div>
+                <img src="./images/slides/demo4.png" alt="Diapo 3">
+                <div class="diapo-text">
+                    <h1>Tu música, en todas partes.</h1>
+                    <h2>Accede desde cualquier dispositivo.</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones de login y registro -->
+        <div class="text-box">
+            <div class="buttons">
+                <button class="btn register-btn" onclick="window.location.href='register.html'">Registrarse gratis</button>
+                <button class="btn login-btn" onclick="window.location.href='login.html'">Iniciar sesión</button>
+            </div>
+        </div>
+
+        <!-- Indicadores -->
+        <div class="diapo-indicators">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+        </div>
+    </div>
+
+    <script src="js/demo.js"></script>
+</body>
+</html>

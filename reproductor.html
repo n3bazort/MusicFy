@@ -24,10 +24,11 @@
 
     <header>
         <nav>
-           <a href="index.html" class="logo">MusicFy</a>
+            <a href="index.html" class="logo">MusicFy</a>
             <div class="nav-links">
-                <a href="index.html">INICIO</a>
-
+                <button onclick="window.location.href='index.html'" class="back-btn">
+                    ⬅
+                </button>
             </div>
         </nav>
     </header>
@@ -35,20 +36,29 @@
 
 
     <div class="player-container">
-        <!-- <div class="vinyl-record" id="vinyl"></div> -->
+        <!-- Botón aleatorio -->
+
+        <!-- Pantalla principal -->
         <div class="player-screen">
-            <img src="images/albums/disco.gif" alt="Reproducción de música" class="gif-player">
+            <img id="album-cover" src="images/albums/disco.gif" alt="Reproducción de música" class="gif-player">
         </div>
 
-        <div class="song-info">
-            <div class="song-title">La cucaracha</div>
-            <div class="artist">Zim Bala Jonny</div>
-        </div>
+       <!-- Contenedor para los botones y el título -->
+<div class="song-controls-container">
+    <button id="shuffle-btn" class="icon-btn">🔀</button>
+    <span id="song-title" class="song-title">Canción no seleccionada</span>
+    <button id="favorite-btn" class="icon-btn">❤️</button>
+</div>
+<div id="artist" class="artist">Artista desconocido</div>
 
+
+
+        <!-- Barra de progreso -->
         <div class="progress-bar">
             <div class="progress" id="progress"></div>
         </div>
 
+        <!-- Controles -->
         <div class="controls">
             <button class="control-btn">⏮</button>
             <button class="control-btn" id="playBtn">▶</button>
@@ -56,38 +66,9 @@
         </div>
     </div>
 
-    <script>
-        const vinyl = document.getElementById('vinyl');
-        const playBtn = document.getElementById('playBtn');
-        const progress = document.getElementById('progress');
-        let isPlaying = false;
-        let progressInterval;
 
-        playBtn.addEventListener('click', () => {
-            isPlaying = !isPlaying;
-            if (isPlaying) {
-                vinyl.classList.add('playing');
-                playBtn.textContent = '⏸';
-                startProgress();
-            } else {
-                vinyl.classList.remove('playing');
-                playBtn.textContent = '▶';
-                stopProgress();
-            }
-        });
+    <script src="js/reproductor.js"></script>
 
-        function startProgress() {
-            let width = 0;
-            progressInterval = setInterval(() => {
-                width = (width + 0.1) % 100;
-                progress.style.width = width + '%';
-            }, 100);
-        }
-
-        function stopProgress() {
-            clearInterval(progressInterval);
-        }
-    </script>
 </body>
 
 </html>

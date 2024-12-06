@@ -11,24 +11,13 @@
         <nav>
             <a href="index.html" class="logo">MusicFy</a>
             <div class="nav-links">
-                <a href="index.html">INICIO</a>
-                <a href="#" id="searchBtn">BUSCAR</a>
-                <a href="#" id="profileBtn">PERFIL</a>
-                <a href="#" id="logoutBtn">CERRAR SESIÓN</a>
+
             </div>
         </nav>
     </header>
 
     <main>
-    <!--     <section class="user-profile">
-            <h2>Perfil de Usuario</h2>
-            <div id="userInfo">
-                <h3>Nombre de Usuario: JohnDoe</h3>
-                <p>Email: johndoe@example.com</p>
-                <p>Fecha de registro: 01/01/2023</p>
-            </div>
-        </section> -->
-
+ 
         <section class="user-profile">
             <h2>Perfil de Usuario</h2>
             <!-- Aquí se mostrarán los datos -->
@@ -36,7 +25,9 @@
                 <h3>Nombre de Usuario:</h3>
                 <p>Email:</p>
             </div>
+            <button id="logoutBtn" class="btn-logout" onclick="window.location.href='login.html'">Cerrar sesión</button>
         </section>
+        
 
         <section class="listen-again">
             <h3>Escuchar otra vez</h3>
@@ -89,6 +80,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/user.js"></script>
 </body>
 </html>

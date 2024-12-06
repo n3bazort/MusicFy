@@ -1,3 +1,4 @@
+/* Variables de color */
 :root {
     --primary-dark: #003785;
     --primary: #1465bb;
@@ -6,35 +7,7 @@
     --accent: #b9ffff;
 }
 
-main {
-    margin-bottom: 80px;
-    /* Deja espacio para el reproductor */
-    overflow-y: auto;
-    /* Permite desplazamiento vertical */
-    padding: 1rem;
-}
-
-
-
-body {
-    height: 100vh;
-    /* Asegura que el cuerpo ocupe toda la pantalla */
-    display: flex;
-    flex-direction: column;
-}
-
-footer.player {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--primary);
-    padding: 0.3rem;
-    /* Cambia estos valores para ajustarlo */
-    height: auto;
-    /* Ajusta a su contenido */
-}
-
-
+/* Reset general */
 * {
     margin: 0;
     padding: 0;
@@ -42,11 +15,170 @@ footer.player {
     font-family: 'Arial', sans-serif;
 }
 
+
+
+
+/* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
+/* Contenedor principal */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Wrapper de imágenes */
+.diapo-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Diapo */
+.diapo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.8); /* Encoge las diapos no activas */
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+    z-index: 1;
+}
+
+/* Diapo activa */
+.diapo.active {
+    opacity: 1;
+    transform: scale(1); /* Tamaño completo para la diapo activa */
+    z-index: 2;
+}
+
+/* Imagen */
+.diapo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Degradado */
+.diapo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent 50%), /* Degradado desde el lado izquierdo */
+        linear-gradient(to top, rgb(0, 55, 133), transparent 70%); /* Degradado desde la parte inferior */
+    z-index: 1;
+}
+
+
+/* Texto */
+.diapo-text {
+    position: absolute;
+    z-index: 2;
+    bottom: 20%;
+    left: 5%;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: left;
+}
+
+.diapo-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.diapo-text h2 {
+    font-size: 1.5rem;
+}
+
+/* Botones */
+.text-box {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    z-index: 3;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-btn {
+    background-color: #2196f3;
+    color: white;
+}
+
+.register-btn:hover {
+    background-color: #1465bb;
+}
+
+.login-btn {
+    background-color: white;
+    color: #2196f3;
+}
+
+.login-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Indicadores */
+.diapo-indicators {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 3;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+    background-color: white;
+}
+
+/* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
+
+/* Estilo general del cuerpo */
 body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: var(--primary-dark);
     color: white;
 }
 
+/* Estilos del encabezado */
 header {
     background-color: var(--primary);
     padding: 1rem;
@@ -74,270 +206,82 @@ nav {
     text-decoration: none;
 }
 
-.genres {
+/* Contenedor principal del login/registro */
+.login-container {
     display: flex;
-    gap: 1rem;
-    padding: 1rem;
-    overflow-x: auto;
-}
-
-.genre-btn {
-    background-color: var(--primary-light);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.genre-btn:hover {
-    transform: scale(1.1);
-    background-color: var(--primary);
-}
-
-.music-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
-    padding: 1rem;
-}
-
-.music-card {
-    background-color: var(--primary);
-    border-radius: 10px;
-    padding: 1rem;
-    cursor: pointer;
-    text-align: center;
-    transition: transform 0.3s, background-color 0.3s;
-    /* Transición suave */
-}
-
-.music-card:hover {
-    transform: scale(1.05);
-    /* Agranda ligeramente la tarjeta */
-    background-color: var(--primary-light);
-}
-
-
-.music-card img {
+    height: 100vh;
     width: 100%;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
 }
 
-.player {
-    position: fixed;
-    bottom: 0;
+/* Sección de la imagen */
+.image-section {
+    width: 60%;
+    background: url('../images/albums/fondo.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+/* Degradado para la imagen */
+.image-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    background-color: var(--primary);
-    padding: 1rem;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0, 55, 133, 0.6) 0%, rgba(0, 0, 0, 0) 50%);
+}
+
+/* Sección del formulario */
+.form-section {
+    width: 40%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.player-controls {
-    display: flex;
-    gap: 1rem;
-}
-
-.player-btn {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 1.2rem;
-}
-
-.form-container {
-    max-width: 400px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: var(--primary);
-    border-radius: 10px;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 0.5rem;
-    border: none;
-    border-radius: 5px;
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 0.5rem;
-    background-color: var(--primary-light);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.user-profile,
-.listen-again,
-.available-music {
-    margin: 2rem 0;
-    padding: 0 1rem;
-}
-
-.album-cover {
-    width: 50px;
-    height: 50px;
-    margin-right: 1rem;
-}
-
-#progress-bar,
-#volume-control {
-    width: 100%;
-    margin: 0 1rem;
-}
-
-.active {
-    color: var(--accent);
-}
-
-
-.player-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    background-color: var(--primary-dark);
 }
 
-.vinyl-record {
-    width: 300px;
-    height: 300px;
-    background: #000;
-    border-radius: 50%;
-    margin: 2rem;
-    animation: rotate 20s linear infinite;
-    animation-play-state: paused;
-}
-
-.vinyl-record.playing {
-    animation-play-state: running;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.song-info {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-.song-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.artist {
-    color: var(--secondary-light);
-}
-
-.controls {
-    display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.control-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-.progress-bar {
-    width: 80%;
-    height: 4px;
-    background: var(--primary);
-    margin: 2rem 0;
-    cursor: pointer;
-}
-
-.progress {
-    width: 0%;
-    height: 100%;
-    background: var(--accent);
-    transition: width 0.1s linear;
-}
-
-.gif-player {
-    width: 100%;
-    /* Ajusta al tamaño del contenedor */
-    max-width: 300px;
-    /* Tamaño máximo del GIF */
-    height: auto;
-    border-radius: 10px;
-    display: block;
-    margin: 0 auto;
-}
-
+/* Contenedor del formulario */
 .form-container {
-
-    max-width: 25%;
-    width: 100%;
-    margin: auto;
-    /* Centra horizontalmente */
+    max-width: 400px;
+    width: 90%;
     padding: 2rem;
     background-color: var(--primary);
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    /* Sombra */
-    display: flex;
-    /* Habilita flexbox */
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 70vh;
+    text-align: center;
 }
 
+/* Títulos del formulario */
 h2 {
-    text-align: center;
-    /* Centra el título */
+    font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
+/* Estilo de los grupos del formulario */
 .form-group {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
+/* Etiquetas */
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold;
 }
 
+/* Campos de entrada */
 .form-group input {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.8rem;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
+    background-color: #ffffff;
 }
 
+/* Botón de inicio de sesión */
 button[type="submit"] {
     width: 100%;
     padding: 0.8rem;
@@ -353,22 +297,426 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: var(--primary);
-    /* Color más oscuro al pasar el cursor */
 }
 
+/* Enlace de registro */
 p {
-    text-align: center;
     margin-top: 1rem;
+    font-size: 0.9rem;
 }
 
-a {
+p a {
     color: var(--accent);
-    /* Azul claro */
     text-decoration: none;
     font-weight: bold;
 }
 
-a:hover {
+p a:hover {
     text-decoration: underline;
-    /* Subrayado al pasar el cursor */
+}
+
+/* Estilos para el index */
+
+/* Contenedor de los géneros */
+.genres {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+/* Botones de géneros */
+.genre-btn {
+    background-color: var(--primary-light);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.genre-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--primary);
+}
+
+/* Grid de música */
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Tarjetas de música */
+.music-card {
+    background-color: var(--primary);
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.music-card:hover {
+    transform: scale(1.05);
+    background-color: var(--primary-light);
+}
+
+.music-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos para el reproductor */
+
+.player-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--primary-dark);
+}
+
+.gif-player {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.song-info {
+    margin: 2rem 0;
+}
+
+.song-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.artist {
+    color: var(--secondary-light);
+}
+
+.progress-bar {
+    width: 80%;
+    height: 4px;
+    background-color: var(--primary);
+    margin: 1rem 0;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--accent);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.control-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .image-section {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .form-section {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .form-container {
+        max-width: 300px;
+    }
+}
+/* Estilo general del reproductor */
+footer.player {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--primary);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+/* Animación de movimiento circular */
+@keyframes circular-motion {
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+    25% {
+        transform: translateX(2px) translateY(-5px);
+    }
+    50% {
+        transform: translateX(0px) translateY(-10px);
+    }
+    75% {
+        transform: translateX(-2px) translateY(-5px);
+    }
+    100% {
+        transform: translateX(0px) translateY(0px);
+    }
+}
+
+/* Botones de iconos */
+.icon-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 0 0.5rem;
+}
+
+.icon-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Contenedor del título de la canción y botones */
+.song-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem; /* Espaciado uniforme */
+    width: 100%;
+    margin: 1rem 0;
+}
+
+/* Botones de iconos */
+.icon-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.icon-btn:hover {
+    transform: scale(1.2);
+}
+
+
+
+
+
+
+
+/* Text box */
+.text-box {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    z-index: 3;
+    color: white;
+}
+
+.text-box h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.text-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-btn {
+    background-color: #2196f3;
+    color: white;
+}
+
+.register-btn:hover {
+    background-color: #1465bb;
+}
+
+.login-btn {
+    background-color: #fff;
+    color: #2196f3;
+}
+
+.login-btn:hover {
+    background-color: #e0e0e0;
+}
+
+
+.btn-logout {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-light);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: var(--primary);
+}
+
+/* Título centrado */
+.song-title {
+    flex: 1; /* Hace que el título ocupe todo el espacio disponible */
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Contenedor principal para los botones y el título */
+.song-controls-container {
+    display: flex;
+    justify-content: space-between; /* Espacia los elementos uniformemente */
+    align-items: center; /* Alinea verticalmente */
+    gap: 1rem; /* Espaciado entre los elementos */
+    width: 70%; /* Ocupa el 70% del ancho del contenedor padre */
+    margin: 1rem auto; /* Centra horizontalmente */
+}
+
+
+/* Botones de iconos */
+.icon-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.icon-btn:hover {
+    transform: scale(1.2); /* Efecto al pasar el cursor */
+}
+
+/* Título de la canción */
+.song-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-align: center; /* Opcional, asegura que el texto del título esté centrado */
+    flex-grow: 1; /* Hace que el título ocupe el espacio restante */
+}
+
+/* Contenedor de título de canción e íconos */
+.song-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+/* Botón de corazón activo */
+.icon-btn.active {
+    color: red; /* Cambia el color a rojo cuando está activo */
+}
+
+/* Imagen en el reproductor */
+.gif-player {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    animation: circular-motion 3s infinite ease-in-out; /* Aplica la animación */
+}
+
+/* Sección de la canción en reproducción */
+.now-playing {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.album-cover {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+/* Controles del reproductor */
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+}
+
+.player-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+.player-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Barra de progreso y volumen */
+#progress-bar,
+#volume-control {
+    width: 100px;
+    height: 4px;
+    background: var(--primary-light);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
 }
