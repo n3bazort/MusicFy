@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - MusicFy</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">MusicFy</a>
+            <div class="nav-links">
+                <a href="user.html">
+        
+                </a>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="block-state-container">
+        <div class="block-state-icon animate__animated animate__bounce animate__infinite">⚠️</div>
+        <h1 class="block-state-title animate__animated animate__fadeIn">Oops! Algo salió mal</h1>
+        <p class="block-state-message animate__animated animate__fadeIn animate__delay-1s">
+            Lo sentimos, pero no podemos procesar tu solicitud en este momento. Esto puede deberse a problemas de conexión o mantenimiento del sistema. Por favor, inténtalo de nuevo más tarde.
+        </p>
+        <a href="javascript:void(0);" class="block-state-button animate__animated animate__fadeIn animate__delay-2s" onclick="goBack()">Volver a la página anterior</a>
+
+    </div>
+    <script>function goBack() {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = 'index.html'; // Redirige al inicio si no hay historial
+        }
+    }
+    </script>
+</body>
+</html>
+

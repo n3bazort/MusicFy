@@ -41,10 +41,24 @@
         </form>
         <p>¿Ya tienes una cuenta?</p>
         <p><a href="login.html">Inicia sesión aquí</a></p>
+
+        <div class="google-login">
+            <button id="googleLoginBtn">
+                <img src="./images/slides/google-logo.jpg" alt="Google Logo" class="google-logo">
+                Registrate con Google
+            </button>
+        </div>
     </div>
 </div>
 
     </div>
+    <script src="js/login.js"></script>
+    <script>
+        document.getElementById('googleLoginBtn').addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = 'block-state.html'; // Redirige a la página de error
+        });
+    </script>
     <script src="js/register.js"></script>
 </body>
 

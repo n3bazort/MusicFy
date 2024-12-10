@@ -32,10 +32,24 @@
                 </form>
                 <p>¿No tienes una cuenta?</p>
                 <p><a href="register.html">Regístrate aquí</a></p>
+
+                <!-- Botón de inicio con Google -->
+                <div class="google-login">
+                    <button id="googleLoginBtn">
+                        <img src="./images/slides/google-logo.jpg" alt="Google Logo" class="google-logo">
+                        Inicia sesión con Google
+                    </button>
+                </div>
             </div>
         </div>
     </div>
     <script src="js/login.js"></script>
+    <script>
+        document.getElementById('googleLoginBtn').addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = 'block-state.html'; // Redirige a la página de error
+        });
+    </script>
 </body>
 
 </html>

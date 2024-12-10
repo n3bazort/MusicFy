@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de MusicFy</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+   
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="logo">MusicFy</a>
+        <div class="nav-links">
+            <a href="index.html">INICIO</a>
+            <a href="register.html">REGISTRARME</a>
+            <a href="#">AYUDA</a>
+        </div>
+    </header>
+    
+    <main class="about-musicfy-container">
+        <header class="about-musicfy-header animate__animated animate__fadeIn">
+            <h1 class="about-musicfy-title">¿Qué es MusicFy?</h1>
+            <p class="about-musicfy-subtitle">
+                Tu compañero musical perfecto. MusicFy es un servicio de música, pódcasts y vídeos digitales que te da acceso a millones de canciones y a otro contenido de creadores de todo el mundo.
+            </p>
+            <p class="about-musicfy-subtitle">
+                Las funciones básicas, como escuchar música, son totalmente gratis, pero también tienes la opción de mejorar tu cuenta con MusicFy Premium.
+            </p>
+           
+        
+        
+        <section class="about-musicfy-section animate__animated animate__fadeInUp">
+            <h2 class="about-musicfy-section-title">Nuestra Misión</h2>
+            <div class="swiper mission-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./images/slides/i1.webp" alt="Descubrimiento musical">
+                        <p>Conectar a las personas a través de la música</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/slides/i7.webp" alt="Conectando personas">
+                        <p>Facilitar el descubrimiento de nueva música</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/slides/i3.webp" alt="Experiencia personalizada">
+                        <p>Ofrecer una experiencia musical personalizada</p>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <section class="about-musicfy-section animate__animated animate__fadeInUp animate__delay-1s">
+            <h2 class="about-musicfy-section-title">Nuestra Visión</h2>
+            <div class="swiper vision-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./images/slides/i4.webp" alt="Innovación musical">
+                        <p>Ser líderes en innovación en la industria musical</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/slides/i5.webp" alt="Comunidad global">
+                        <p>Crear una comunidad global de amantes de la música</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/slides/i6.webp" alt="Apoyo a artistas">
+                        <p>Apoyar a artistas emergentes y establecidos por igual</p>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        new Swiper('.mission-swiper', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        new Swiper('.vision-swiper', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+</html>
+
